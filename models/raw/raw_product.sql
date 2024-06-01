@@ -4,6 +4,8 @@
     )
 }}
 
-select *,
-current_date() as created_dt 
-from raw.globalmart.product
+select
+    *,
+    current_date() as created_dt 
+from 
+    {{ source('rawlayer', 'product') }}
