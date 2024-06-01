@@ -13,4 +13,5 @@ select
     ordercostprice,
     ordersellingprice,
     current_date() as created_dt
-from raw.globalmart.orders
+from 
+    {{ source('rawlayer', 'orders') }}
