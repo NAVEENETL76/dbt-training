@@ -6,6 +6,7 @@ select
     o.ordercostprice,
     o.ordersellingprice,
     (o.ordersellingprice-o.ordercostprice) as orderprofit,
+    round({{markup('o.ordersellingprice','o.ordercostprice')}}*100,2) as markup,
     c.customerid,
     c.customername,
     c.segment,
@@ -18,3 +19,4 @@ select
  from {{ ref('raw_orders') }} o
  left join {{ ref('raw_customer') }} c on o.customerid=c.customerid
  left join {{ ref('raw_product') }} p on o.productid=p.productid
+ {{limit_data('o.created_dt')}}
