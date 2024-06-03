@@ -1,4 +1,5 @@
 select 
+    {{dbt_utils.surrogate_key(['o.orderid','p.productid','c.customerid'])}} as sk_orders, 
     o.orderid,
     to_date(o.orderdate, 'YYYY/MM/DD') as orderdate,
     to_date(o.shipdate, 'YYYY/MM/DD') as shipdate,
