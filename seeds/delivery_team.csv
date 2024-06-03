@@ -1,0 +1,5 @@
+shipmode,delivery_team
+First Class,FHL_Couriers
+Second Class,SHL_Couriers
+Standard Class,RHL_Couriers
+Same Day,Globalmart
